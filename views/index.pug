@@ -4,6 +4,14 @@ block content
   h1= title
   p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
 
+  h1 Search for a Book, Author, Genre or a Book Instance
+
+  form(action="/catalog/search" method="POST")
+    div.form-group
+      label(for='search_bar') Search:
+      input#search_bar.form-control(type="text" name="search_bar")
+    button.btn.btn-primary(type="submit") SEARCH
+
   h1 Dynamic content
 
   p The library has the follwing record counts:

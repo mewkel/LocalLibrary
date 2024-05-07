@@ -291,5 +291,24 @@ exports.book_update_post = [
   }),
 ];
 
+//Search get 
+exports.search_post = asyncHandler(async (req, res, next) => {
+
+  const search = req.body.search_bar;
+
+  const authors = await Author.find( { $or:[{ first_name:search }, {family_name: search}]}).exec();
+
+  //const [authors, books, genres, bookinstances] = await Promise.all([
+    //Author.find({ first_name})
+  //])
+
+
+  console.log(authors)
+
+  res.render("search_page", {
+    title: "Search results",
+  });
+
+});
 
 

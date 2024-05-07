@@ -1,0 +1,15 @@
+
+extends layout
+
+block content
+  h1=title
+
+  //-if authors.length || books.length || genre.length || book_instances.length
+    
+    //-if authors.length
+      //-dl
+        //-each author in authors
+          //-dt 
+            //-a(href=author.url) #{author.first_name}
+          //-dd #{author.family_name}
+    
