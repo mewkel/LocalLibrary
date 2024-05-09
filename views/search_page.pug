@@ -4,12 +4,29 @@ extends layout
 block content
   h1=title
 
-  //-if authors.length || books.length || genre.length || book_instances.length
-    
-    //-if authors.length
-      //-dl
-        //-each author in authors
-          //-dt 
-            //-a(href=author.url) #{author.first_name}
-          //-dd #{author.family_name}
-    
+  if authors.length
+    ul
+      each author in authors
+        li 
+          a(href=author.url) #{author.first_name} #{author.family_name}
+        dd #[Strong Date of birth]: #{author.date_of_birth}
+
+  if books.length
+    ul
+      each book in books
+        li 
+          a(href=book.url) #{book.title}
+        dd #[Strong Summary]: #{book.isbn}
+  
+  if genres.length
+    ul
+      each genre in genres
+        li 
+          a(href=genre.url) #{genre.name}
+
+  if bookinstances.length
+    ul
+      each bookinstance in bookinstances
+        li
+          a(href=bookinstance.url) #{bookinstance.imprint}
+        dd #[Strong Status] #{bookinstance.status}

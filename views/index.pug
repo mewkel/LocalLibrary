@@ -6,7 +6,7 @@ block content
 
   h1 Search for a Book, Author, Genre or a Book Instance
 
-  form(action="/catalog/search" method="POST")
+  form(action="/catalog/search" method="GET")
     div.form-group
       label(for='search_bar') Search:
       input#search_bar.form-control(type="text" name="search_bar")
