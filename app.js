@@ -7,7 +7,6 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog');
-require("dotenv").config();
 
 const app = express();
 
@@ -21,9 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const mongoose = require("mongoose");
-mongoose.set("strictQuery", false);
-const mongoDB = process.env.mongoDB;
+//const mongoose = require("mongoose");
+//mongoose.set("strictQuery", false);
+//const mongoDB = process.env.mongoDB;
+
 
 main().catch((err) => console.log(err));
 async function main(){
