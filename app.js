@@ -6,7 +6,8 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const catalogRouter = require('./routes/catalog')
+const catalogRouter = require('./routes/catalog');
+require("dotenv").config();
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://mikkelbrunl:I9VknE9h2C3DTNa2@library.yezispp.mongodb.net/Database?retryWrites=true&w=majority&appName=Library";
+const mongoDB = process.env.mongoDB;
 
 main().catch((err) => console.log(err));
 async function main(){
