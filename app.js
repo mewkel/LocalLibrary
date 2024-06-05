@@ -36,6 +36,8 @@ async function main(){
 
 //Hello there
 
+//Hello again
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);
