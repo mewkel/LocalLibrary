@@ -32,6 +32,8 @@ async function main(){
   await mongoose.connect(mongoDB);
 }
 
+//Hello there
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/catalog', catalogRouter);
