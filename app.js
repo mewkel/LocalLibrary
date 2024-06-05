@@ -11,16 +11,6 @@ require("dotenv").config();
 
 const app = express();
 
-//Hello there
-//
-//Hello again
-//
-//Hello again again
-//
-//Hello again something something
-
-//Hello again again again
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -39,12 +29,6 @@ main().catch((err) => console.log(err));
 async function main(){
   await mongoose.connect(mongoDB);
 }
-
-//Hello there
-
-//Hello again
-
-//Hello again again
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
