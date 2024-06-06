@@ -294,19 +294,14 @@ exports.book_update_post = [
 //Search get
 exports.search_get = asyncHandler(async (req, res, next) => {
 
-
   const search = req.query.search_bar;
-
-  console.log(search)
-
-  //const authors = await Author.find({ $or: [{ first_name:search}, {family_name:search}]}).exec();
 
   const [authors, books, genres, bookinstances] = await Promise.all([
 
-    Author.find({ $or: [{ first_name: { "$regex": search } }, {family_name: { "$regex": search } }] }).exec(),
-    Book.find({ title: { "$regex": search } }).exec(),
-    Genre.find({ name: { "$regex": search } }).exec(),
-    BookInstance.find({ imprint: { "$regex": search } }).exec(),
+    Author.find({ $or: [{ first_name: { $regex: search } }, {family_name: { $regex: search } }] }).exec(),
+    Book.find({ title: { $regex: search } }).exec(),
+    Genre.find({ name: { $regex: search } }).exec(),
+    BookInstance.find({ imprint: { $regex: search } }).exec(),
 
   ]);
 
@@ -317,27 +312,5 @@ exports.search_get = asyncHandler(async (req, res, next) => {
     genres: genres,
     bookinstances: bookinstances,
   });
-  
 });
-
-//Search get 
-exports.search_post = asyncHandler(async (req, res, next) => {
-
-  const search = req.body.search_bar;
-
-  const authors = await Author.find( { $or:[{ first_name:search }, {family_name: search}]}).exec();
-
-  //const [authors, books, genres, bookinstances] = await Promise.all([
-    //Author.find({ first_name})
-  //])
-
-
-  console.log(authors)
-
-  res.render("search_page", {
-    title: "Search results",
-  });
-
-});
-
 
