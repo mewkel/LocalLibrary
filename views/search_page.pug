@@ -8,7 +8,7 @@ block content
     ul
       each author in authors
         li 
-          a(href=author.url) #{author.first_name} #{author.family_name}
+          a(href=author.url) Hello there #{author.first_name} #{author.family_name}
         dd #[Strong Date of birth]: #{author.date_of_birth}
 
   if books.length

@@ -32,16 +32,15 @@ exports.author_upload_get = (req, res, next) => {
 };
 
 exports.author_upload_post = asyncHandler(async function(req, res, next) {
-  const current_author = await Author.findById(req.params.id);
 
   const form = new formidable.IncomingForm();
   form.parse(req, async function(err, fields, files) {
+
     const oldpath = files.filetoupload[0].filepath;
     const newpath =
       "/home/mikkel/Documents/2. semester/code/eksamen/LocalLibrary/public/images/" +
       files.filetoupload[0].originalFilename;
 
-    console.log(files.filetoupload[0].originalFilename);
     const author = new Author({
       img_path: files.filetoupload[0].originalFilename,
       _id: req.params.id,
